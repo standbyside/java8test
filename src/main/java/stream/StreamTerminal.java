@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 public class StreamTerminal {
 
     public static void main(String[] args) {
-        reduce_3();
+        reduce3();
     }
 
     /**
@@ -91,7 +91,7 @@ public class StreamTerminal {
      * 要注意的是：第一次执行的时候第一个参数的值是Stream的第一个元素，第二个参数是Stream的第二个元素。这个方法返回值类型是Optional。
      * 未定义初始值，第一次执行的时候第一个参数的值是Stream的第一个元素，第二个参数是Stream的第二个元素
      */
-    public static void reduce_1() {
+    public static void reduce1() {
         Optional accResult = Stream.of(1, 2, 3, 4)
                 .reduce((acc, item) -> {
                     System.out.println("acc : "  + acc);
@@ -112,7 +112,7 @@ public class StreamTerminal {
      * 该方法不会返回Optional，因为该方法不会出现null。
      * 定义了初始值，第一次执行的时候第一个参数的值是初始值，第二个参数是Stream的第一个元素
      */
-    public static void reduce_2() {
+    public static void reduce2() {
         int accResult = Stream.of(1, 2, 3, 4)
                 .reduce(0, (acc, item) -> {
                     System.out.println("acc : "  + acc);
@@ -135,7 +135,7 @@ public class StreamTerminal {
      *
      * 因为第三个参数用来处理并发操作，如何处理数据的重复性，应多做考虑，否则会出现重复数据
      */
-    public static void reduce_3() {
+    public static void reduce3() {
 
         /**
          * 传递给第一个参数是ArrayList, 在第二个函数参数中打印了"BiFunction"，而在第三个参数接口中打印了函数接口中打印了"BinaryOperator"。
@@ -143,7 +143,7 @@ public class StreamTerminal {
          * 因为Stream是支持并发操作的，为了避免竞争，对于reduce线程都会有独立的result，combiner的作用在于合并每个线程的result得到最终结果。
          * 这也说明了了第三个函数参数的数据类型必须为返回数据类型了
          */
-        ArrayList<Integer> accResult_ = Stream.of(1, 2, 3, 4)
+        ArrayList<Integer> accResult = Stream.of(1, 2, 3, 4)
                 .reduce(new ArrayList<>(),
                         new BiFunction<ArrayList<Integer>, Integer, ArrayList<Integer>>() {
                             @Override
@@ -166,6 +166,6 @@ public class StreamTerminal {
                                 return acc;
                             }
                         });
-        System.out.println("accResult_: " + accResult_);
+        System.out.println("accResult_: " + accResult);
     }
 }

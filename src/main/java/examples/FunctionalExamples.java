@@ -35,7 +35,7 @@ public class FunctionalExamples {
   public static void predicate() {
     Predicate<String> predicate = p1 -> p1.startsWith("a");
     boolean result = predicate.test("apple");
-    System.out.println("Predicate test: "+result);
+    System.out.println("Predicate test: " + result);
   }
 
   /**
@@ -78,7 +78,7 @@ public class FunctionalExamples {
    */
   @FunctionalInterface
   private interface CustomizedFunctional<T> {
-    
+
     void apply(T a);
 
     default void test1() {

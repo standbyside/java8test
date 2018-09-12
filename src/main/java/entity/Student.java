@@ -14,24 +14,24 @@ import java.util.Set;
 @AllArgsConstructor
 public class Student {
 
-    private int no;
-    private String name;
-    private String sex;
-    private float height;
-    private Set<String> book;
+  private int no;
+  private String name;
+  private String sex;
+  private float height;
+  private Set<String> book;
 
-    public Student(int no, String name, String sex, float height) {
-        this.no = no;
-        this.name = name;
-        this.sex = sex;
-        this.height = height;
+  public Student(int no, String name, String sex, float height) {
+    this.no = no;
+    this.name = name;
+    this.sex = sex;
+    this.height = height;
+  }
+
+
+  public void addBook(String book) {
+    if (this.book == null) {
+      this.book = new HashSet<>();
     }
-
-
-    public void addBook(String book) {
-        if (this.book == null) {
-            this.book = new HashSet<>();
-        }
-        this.book.add(book);
-    }
+    this.book.add(book);
+  }
 }

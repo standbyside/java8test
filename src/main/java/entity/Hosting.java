@@ -11,8 +11,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Hosting {
 
-    private int id;
-    private String name;
-    private long websites;
+  private int id;
+  private String name;
+  private long websites;
 
 }

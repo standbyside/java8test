@@ -58,7 +58,7 @@ public class StreamMain {
 
         list.stream()
                 // 直到forEach时才会操作结果
-                .filter(student -> student.getSex().equals("G"))
+                .filter(student -> "G".equals(student.getSex()))
                 .forEach(student -> System.out.println(student.toString()));
         // 外部迭代和内部迭代(聚合操作)差异：
         //   1.迭代器提供next()、hasNext()等方法，开发者可以自行控制对元素的处理，以及处理方式，但是只能顺序处理；

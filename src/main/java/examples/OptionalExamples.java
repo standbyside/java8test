@@ -67,11 +67,11 @@ public class OptionalExamples {
         Optional<String> emptyGender = Optional.empty();
 
         // Optional.empty
-        System.out.println(gender.filter(g -> g.equals("male")));
+        System.out.println(gender.filter(g -> "male".equals(g)));
         // Optional[MALE]
-        System.out.println(gender.filter(g -> g.equalsIgnoreCase("MALE")));
+        System.out.println(gender.filter(g -> "MALE".equalsIgnoreCase(g)));
         // Optional.empty
-        System.out.println(emptyGender.filter(g -> g.equalsIgnoreCase("MALE")));
+        System.out.println(emptyGender.filter(g -> "MALE".equalsIgnoreCase(g)));
     }
 
     /**

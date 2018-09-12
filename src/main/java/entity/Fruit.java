@@ -13,8 +13,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Fruit {
 
-    private String name;
-    private int qty;
-    private BigDecimal price;
+  private String name;
+  private int qty;
+  private BigDecimal price;
 
 }

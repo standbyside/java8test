@@ -11,6 +11,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ScreenResolution {
 
-    private int width;
-    private int height;
+  private int width;
+  private int height;
 }

@@ -22,54 +22,54 @@ import java.util.Map;
  */
 public class LambdaExamples {
 
-    public static void comparator() {
-        List<Person> persons = Arrays.asList(
-                new Person("mkyong", 30),
-                new Person("jack", 20),
-                new Person("lawrence", 40)
-        );
-        // ex1
-        persons.sort((Person o1, Person o2)->o1.getAge()-o2.getAge());
-        // ex2
-        persons.sort((o1, o2)->o1.getName().compareTo(o2.getName()));
-        // ex3
-        Comparator<Person> nameComparator = (o1, o2)->o1.getName().compareTo(o2.getName());
-        persons.sort(nameComparator.reversed());
-        // ex4
-        persons.sort(Comparator.comparing(Person::getName));
-    }
+  public static void comparator() {
+    List<Person> persons = Arrays.asList(
+        new Person("mkyong", 30),
+        new Person("jack", 20),
+        new Person("lawrence", 40)
+    );
+    // ex1
+    persons.sort((Person o1, Person o2) -> o1.getAge() - o2.getAge());
+    // ex2
+    persons.sort((o1, o2) -> o1.getName().compareTo(o2.getName()));
+    // ex3
+    Comparator<Person> nameComparator = (o1, o2) -> o1.getName().compareTo(o2.getName());
+    persons.sort(nameComparator.reversed());
+    // ex4
+    persons.sort(Comparator.comparing(Person::getName));
+  }
 
-    public static void mapForEach() {
-        Map<String, Integer> items = new HashMap<>(16);
-        items.put("A", 10);
-        items.put("B", 20);
-        items.put("C", 30);
-        // ex1
-        items.forEach((k, v) -> System.out.println("k : " + k + " v : " + v));
-        // ex2
-        items.forEach((k, v) -> {
-            System.out.println("k : " + k + " v : " + v);
-            if ("B".equals(k)) {
-                System.out.println("Hello B");
-            }
-        });
-    }
+  public static void mapForEach() {
+    Map<String, Integer> items = new HashMap<>(16);
+    items.put("A", 10);
+    items.put("B", 20);
+    items.put("C", 30);
+    // ex1
+    items.forEach((k, v) -> System.out.println("k : " + k + " v : " + v));
+    // ex2
+    items.forEach((k, v) -> {
+      System.out.println("k : " + k + " v : " + v);
+      if ("B".equals(k)) {
+        System.out.println("Hello B");
+      }
+    });
+  }
 
-    public static void listForEach() {
-        List<String> items = Lists.newArrayList("A", "B", "C");
-        // ex1
-        items.forEach(o -> System.out.println(o));
-        // ex2
-        items.forEach(o -> {
-            if ("C".equals(o)) {
-                System.out.println(o);
-            }
-        });
-        // ex3
-        items.forEach(System.out::println);
-        // ex4
-        items.stream()
-                .filter(s -> s.contains("B"))
-                .forEach(System.out::println);
-    }
+  public static void listForEach() {
+    List<String> items = Lists.newArrayList("A", "B", "C");
+    // ex1
+    items.forEach(o -> System.out.println(o));
+    // ex2
+    items.forEach(o -> {
+      if ("C".equals(o)) {
+        System.out.println(o);
+      }
+    });
+    // ex3
+    items.forEach(System.out::println);
+    // ex4
+    items.stream()
+        .filter(s -> s.contains("B"))
+        .forEach(System.out::println);
+  }
 }
