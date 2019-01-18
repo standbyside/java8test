@@ -105,4 +105,29 @@ public class StreamGroupingByExample {
     System.out.println(result);
   }
 
+  public static void example5() {
+    List<Fruit> list = Lists.newArrayList(
+        new Fruit("apple", 10, new BigDecimal("9.99")),
+        new Fruit("banana", 20, new BigDecimal("19.99")),
+        new Fruit("orange", 10, new BigDecimal("29.99")),
+        new Fruit("watermelon", 10, new BigDecimal("29.99")),
+        new Fruit("papaya", 20, new BigDecimal("9.99")),
+        new Fruit("apple", 10, new BigDecimal("9.99")),
+        new Fruit("banana", 10, new BigDecimal("19.99")),
+        new Fruit("apple", 20, new BigDecimal("9.99"))
+    );
+
+    Map<BigDecimal, List<Fruit>> groupByPriceMap = list.stream()
+        .collect(Collectors.groupingBy(Fruit::getPrice));
+    System.out.println(groupByPriceMap);
+
+    Map<BigDecimal, Fruit> result = list.stream()
+        .collect(
+            Collectors.groupingBy(
+                Fruit::getPrice,
+                Collectors.collectingAndThen(Collectors.toList(),value->value.get(0))
+            )
+        );
+    System.out.println(result);
+  }
 }
