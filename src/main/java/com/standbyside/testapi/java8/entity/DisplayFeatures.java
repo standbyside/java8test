@@ -13,7 +13,6 @@ import java.util.Optional;
 @AllArgsConstructor
 public class DisplayFeatures {
 
-  // In inches
   private String size;
   private Optional<ScreenResolution> resolution;
 
