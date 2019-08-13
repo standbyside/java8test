@@ -31,7 +31,8 @@ public class JoinExamples {
     System.out.println(String.join("-", "2015", "10", "31"));
 
     // ex4
-    System.out.println(String.join(", ", Lists.newArrayList("java", "python", "nodejs", "ruby")));
+    System.out.println(String.join(", ",
+        Lists.newArrayList("java", "python", "nodejs", "ruby")));
   }
 
   public static void collectorsJoining() {
@@ -64,7 +65,9 @@ public class JoinExamples {
     int[] int3 = new int[] {7, 8, 9};
 
     // ex2，primitive type array
-    int[] result2 = IntStream.concat(Arrays.stream(int1), IntStream.concat(Arrays.stream(int2), Arrays.stream(int3))).toArray();
+    int[] result2 = IntStream.concat(
+        Arrays.stream(int1), IntStream.concat(Arrays.stream(int2), Arrays.stream(int3))
+    ).toArray();
     System.out.println(Arrays.toString(result2));
 
     // ex3
