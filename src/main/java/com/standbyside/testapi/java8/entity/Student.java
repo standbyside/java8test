@@ -1,14 +1,12 @@
 package com.standbyside.testapi.java8.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,14 +17,6 @@ public class Student {
   private String sex;
   private float height;
   private Set<String> book;
-
-  public Student(int no, String name, String sex, float height) {
-    this.no = no;
-    this.name = name;
-    this.sex = sex;
-    this.height = height;
-  }
-
 
   public void addBook(String book) {
     if (this.book == null) {

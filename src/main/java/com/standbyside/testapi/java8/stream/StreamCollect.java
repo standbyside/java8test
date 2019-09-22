@@ -10,8 +10,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @author zhaona
- * @create 2018/5/18 14:51
  * <p>
  * <p>
  * 实际开发过程中，List又是我们经常用到的数据结构，但是有时候我们也希望Stream能够转换生成其他的值，比如Map或者set，甚至希望定制生成想要的数据结构。

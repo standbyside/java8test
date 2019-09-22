@@ -45,11 +45,11 @@ public class StreamMain {
 
     public static void example() {
         List<Student> list = Lists.newArrayList(
-                new Student(1, "A", "M", 184),
-                new Student(2, "B", "G", 163),
-                new Student(3, "C", "M", 175),
-                new Student(4, "D", "G", 158),
-                new Student(5, "E", "M", 170)
+                Student.builder().no(1).name("A").sex("M").height(184).build(),
+                Student.builder().no(2).name("B").sex("G").height(163).build(),
+                Student.builder().no(3).name("C").sex("M").height(175).build(),
+                Student.builder().no(4).name("D").sex("G").height(158).build(),
+                Student.builder().no(5).name("E").sex("M").height(170).build()
         );
 
         list.stream()
