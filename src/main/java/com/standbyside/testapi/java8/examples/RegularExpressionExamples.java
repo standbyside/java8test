@@ -1,9 +1,5 @@
 package com.standbyside.testapi.java8.examples;
 
-/**
- * @author zhaona
- * @create 2018/5/18 14:51
- */
 public class RegularExpressionExamples {
 
   /**

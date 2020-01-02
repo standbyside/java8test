@@ -19,7 +19,7 @@ public class FlatMapExamples {
     Stream<String[]> temp = Arrays.stream(new String[][] {{"a", "b"}, {"c", "d"}, {"e", "f"}});
     // Stream<String>
     Stream<String> flatStream = temp.flatMap(x -> Arrays.stream(x));
-    Stream<String> stream = flatStream.filter(x -> "a".equals(x.toString()));
+    Stream<String> stream = flatStream.filter(x -> "a".equals(x));
     stream.forEach(System.out::println);
   }
 

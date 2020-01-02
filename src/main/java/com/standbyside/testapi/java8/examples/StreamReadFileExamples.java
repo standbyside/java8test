@@ -12,10 +12,6 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/**
- * @author zhaona
- * @create 2018/5/18 14:51
- */
 public class StreamReadFileExamples {
 
   /**
