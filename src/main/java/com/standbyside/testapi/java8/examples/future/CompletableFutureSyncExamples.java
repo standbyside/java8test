@@ -25,8 +25,8 @@ public class CompletableFutureSyncExamples {
         System.out.println("------------------then apply------------------");
         CompletableFuture<String> future = CompletableFuture
                 .runAsync(() -> ExampleUtils.sleepAndPrint(1, "hello"))
-                .thenApply(s1 -> s1 + "big")
-                .thenApply(s2 -> s2 + "world");
+                .thenApply(s1 -> s1 + "big ")
+                .thenApply(s2 -> s2 + "world ");
         future.join();
         System.out.println(future.get());
     }
