@@ -5,47 +5,50 @@ import java.util.Map;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
+
+/**
+ * 使用 ForkJoin 模拟 MapReduce 统计单词数量
+ */
 public class ForkJoinExample2 {
 
     public static void main(String[] args) {
-        String[] fc = {"hello world", "hello me", "hello fork", "hello join", "fork join in world"};
+        String[] words = {"hello world", "hello me", "hello fork", "hello join", "fork join in world"};
         // 创建线程池
         ForkJoinPool pool = new ForkJoinPool(3);
         // 创建任务
-        MR mr = new MR(fc, 0, fc.length);
+        WordCount wordCount = new WordCount(words, 0, words.length);
         // 启动任务
-        Map<String, Long> result = pool.invoke(mr);
+        Map<String, Long> result = pool.invoke(wordCount);
         // 输出结果
         System.out.println(result);
     }
 
-
     /**
-     * MR 模拟类.
+     * 统计单词递归任务
      */
-    static class MR extends RecursiveTask<Map<String, Long>> {
+    static class WordCount extends RecursiveTask<Map<String, Long>> {
 
-        private String[] fc;
+        private String[] words;
         private int start;
         private int end;
 
-        MR(String[] fc, int fr, int to) {
-            this.fc = fc;
-            this.start = fr;
+        WordCount(String[] words, int from, int to) {
+            this.words = words;
+            this.start = from;
             this.end = to;
         }
 
         @Override
         protected Map<String, Long> compute() {
             if (end - start == 1) {
-                return calc(fc[start]);
+                return calculate(words[start]);
             } else {
                 int mid = (start + end) / 2;
-                MR mr1 = new MR(fc, start, mid);
-                mr1.fork();
-                MR mr2 = new MR(fc, mid, end);
+                WordCount wordCount1 = new WordCount(words, start, mid);
+                wordCount1.fork();
+                WordCount wordCount2 = new WordCount(words, mid, end);
                 // 计算子任务，并返回合并的结果
-                return merge(mr2.compute(), mr1.join());
+                return merge(wordCount2.compute(), wordCount1.join());
             }
         }
 
@@ -70,8 +73,7 @@ public class ForkJoinExample2 {
         /**
          * 统计单词数量.
          */
-        private Map<String, Long> calc(String line) {
-
+        private Map<String, Long> calculate(String line) {
             Map<String, Long> result = new HashMap<>(16);
             // 分割单词
             String[] words = line.split("\\s+");

@@ -1,4 +1,4 @@
-package com.standbyside.testapi.utils;
+package com.standbyside.testapi.util;
 
 import com.standbyside.testapi.java8.entity.Fruit;
 

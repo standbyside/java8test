@@ -3,6 +3,9 @@ package com.standbyside.testapi.concurrent;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
+/**
+ * 使用 ForkJoin 计算斐波那契数
+ */
 public class ForkJoinExample1 {
 
     public static void main(String[] args) {
@@ -16,6 +19,9 @@ public class ForkJoinExample1 {
         System.out.println(result);
     }
 
+    /**
+     * 斐波那契递归任务
+     */
     private static class Fibonacci extends RecursiveTask<Integer> {
 
         final int n;

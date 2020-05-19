@@ -1,6 +1,6 @@
 package com.standbyside.testapi.java8.examples.future;
 
-import com.standbyside.testapi.utils.ExampleUtils;
+import com.standbyside.testapi.util.ExampleUtils;
 
 import java.util.concurrent.CompletableFuture;
 

@@ -1,4 +1,4 @@
-package com.standbyside.testapi.java7.examples;
+package com.standbyside.testapi.concurrent;
 
 import com.google.common.base.Stopwatch;
 
@@ -11,8 +11,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 public class FutureTaskExamples {
-
-
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
         // 计时器
